@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{drumwar}
+
+\setlength{\squaresize}{12.5mm}
+\setlength{\finetune}{\squaresize/2}
+
+\begin{document}
+\begin{tikzpicture}
+\path[draw] (-105mm,-148.5mm) rectangle (105mm, 148.5mm);
+\pic at (-3\smallhorizdist/2,3\smallvertdist/2) {pentominocardfrontprintable={tetrai}{black}};
+\pic at (0,3\smallvertdist/2) {pentominocardfrontprintable={tetrao}{black}};
+\pic at (3\smallhorizdist/2,3\smallvertdist/2) {pentominocardfrontprintable={tetrat}{black}};
+\pic at (-3\smallhorizdist/2,\smallvertdist/2) {pentominocardfrontprintable={tetral}{black}};
+\pic at (3\smallhorizdist/2,\smallvertdist/2) {pentominocardfrontprintable={tetras}{black}};
+
+
+\end{tikzpicture}
+\end{document}

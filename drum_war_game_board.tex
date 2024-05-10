@@ -1,0 +1,45 @@
+\documentclass{standalone}
+
+\usepackage{drumwar}
+
+\setlength{\squaresize}{12.5mm}
+\setlength{\finetune}{\squaresize/2}
+
+\tikzset{lightsquare/.style={draw, line width=0.375mm, minimum width=\squaresize, minimum height=\squaresize, inner sep=0pt}}
+\tikzset{heavysquare/.style={draw, line width = 0.75mm, minimum width=4\squaresize, minimum height=4\squaresize, inner sep=0pt}}
+\tikzset{heavyrectangle/.style={draw, line width = 0.75mm, minimum width=4\squaresize, minimum height=\squaresize, inner sep=0pt}}
+
+\tikzset{staff/.pic={
+\foreach \i in {-15,-14,...,16} {
+	\foreach \j in {-1,0,1,2} 
+		\node[lightsquare] at (\i\squaresize - \finetune, \j\squaresize - \finetune) {};
+%	\node[lightsquare] at (\i\squaresize - \finetune, -3\squaresize-\finetune) {};
+}
+	
+\foreach \i in {-14,-10,...,14} {
+	\node[heavysquare] at (\i\squaresize,0) {};
+%	\node[heavyrectangle] at (\i\squaresize,-3\squaresize-\finetune) {};
+}	
+	
+}}
+
+
+\tikzset{track/.pic={
+\foreach \i in {-15,-14,...,16}
+	\node[lightsquare] at (\i\squaresize - \finetune, 0-\finetune) {};
+\foreach \i in {-14,-10,...,14}
+	\node[heavyrectangle] at (-\i\squaresize,0-\finetune) {};
+
+}}
+
+
+\begin{document}
+\begin{tikzpicture}
+\path (-210mm, -148.5mm) -- (210mm, 148.5mm);
+	
+\pic at (0,3.5\squaresize) {staff};
+\pic at (0,\finetune) {track};
+\pic at (0,-3.5\squaresize) {staff};
+
+\end{tikzpicture}
+\end{document}
